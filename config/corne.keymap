@@ -20,6 +20,33 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
+
+        uml_a: uml_a {
+            compatible = "zmk,behavior-mod-morph";
+            label = "UML_A";
+            bindings = <&kp RA(A)>, <&kp RA(RC(Q))>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RCTL)>;
+        };
+
+        uml_u: uml_u {
+            compatible = "zmk,behavior-mod-morph";
+            label = "UML_U";
+            bindings = <&kp LA(U)>, <&kp LA(LC(Y))>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        uml_o: uml_o {
+            compatible = "zmk,behavior-mod-morph";
+            label = "UML_O";
+            bindings = <&kp LA(O)>, <&kp LA(LC(SEMI))>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
     };
 
     conditional_layers {
