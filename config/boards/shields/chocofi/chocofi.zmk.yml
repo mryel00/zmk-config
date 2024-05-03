@@ -1,6 +1,6 @@
 file_format: "1"
-id: corne
-name: Corne
+id: chocofi
+name: Chocofi
 type: shield
 url: https://github.com/foostan/crkbd/
 requires: [pro_micro]
@@ -10,6 +10,6 @@ features:
   - display
   - underglow
 siblings:
-  - corne_left
-  - corne_right
-  - corne_dongle
+  - chocofi_left
+  - chocofi_right
+  - chocofi_dongle
