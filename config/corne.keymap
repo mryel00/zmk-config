@@ -8,10 +8,9 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
-    // https://zmk.dev/docs/behaviors/hold-tap#example-use-cases
-    // https://github.com/qmk/qmk_firmware/blob/master/docs/tap_hold.md#default-mode
-
     behaviors {
+        // https://zmk.dev/docs/behaviors/hold-tap#example-use-cases
+        // https://github.com/qmk/qmk_firmware/blob/master/docs/tap_hold.md#default-mode
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -88,7 +87,7 @@
 &kp TAB   &kp Q       &kp W       &kp F        &kp P        &kp B        &kp J    &kp L        &kp U        &kp Y       &kp SEMI    &kp BSPC
 &kp BSPC  &hm LGUI A  &hm LALT R  &hm LSHFT S  &hm LCTRL T  &kp G        &kp M    &hm RCTRL N  &hm RSHFT E  &hm RALT I  &hm RGUI O  &kp SQT
 &kp DEL   &kp Z       &kp X       &kp C        &kp D        &kp V        &kp K    &kp H        &kp COMMA    &kp DOT     &kp FSLH    &kp ESC
-                                  &kp LGUI     &mo 1        &kp SPACE    &kp RET  &mo 2        &kp RALT
+                                  &kp LGUI     &mo 2        &kp SPACE    &kp RET  &mo 1        &kp RALT
             >;
         };
 
@@ -145,7 +144,7 @@
             // |     |  6  |  7  |   8    |  9  |  0  |        |   |   |   |   |   |   |
             // |     |  1  |  2  |   3    |  4  |  5  |        |   |   |   |   |   |   |
             // |     |     |     | "Play" |     |     |        |   |   |   |   |   |   |
-            //                   |  GUI  |     | SPC |           |   |   |   |
+            //                   |  GUI   |     | SPC |        |   |   |   |
 
             bindings = <
 &trans  &kp N6  &kp N7  &kp N8            &kp N9  &kp N0       &trans  &trans  &trans  &trans  &trans  &trans
