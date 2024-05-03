@@ -10,7 +10,6 @@
     status = "okay";
     cdc_acm_uart: cdc_acm_uart {
         compatible = "zephyr,cdc-acm-uart";
-        zephyr,console = &cdc_acm_uart;
     };
 };
 
@@ -19,6 +18,7 @@
     chosen {
         zmk,kscan = &kscan0;
         zmk,matrix-transform = &default_transform;
+        zephyr,console = &cdc_acm_uart;
     };
 
     kscan0: kscan {
