@@ -22,5 +22,5 @@ include:
     shield: chocofi_left
   - board: nice_nano_v2
     shield: chocofi_right
-  - board: nice_nano_v2
+  - board: nrf52840_mdk_usb_dongle
     shield: chocofi_dongle
