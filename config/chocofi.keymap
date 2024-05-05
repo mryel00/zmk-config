@@ -1,0 +1,15 @@
+/* source key position labels */
+#include "zmk-helpers/key-labels/42.h"
+
+#define X_LT  &kp TAB
+#define X_LM  &kp BSPC
+#define X_LB  &kp LCTL
+#define X_LH  &kp LGUI
+
+#define X_RT  &none
+#define X_RM  &none 
+#define X_RB  &none 
+#define X_RH  &mo MOUSE
+
+/* source the main keymap */
+#include "base.keymap"
