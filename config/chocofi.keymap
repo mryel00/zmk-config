@@ -7,9 +7,9 @@
 #define X_LH  &kp LGUI
 
 #define X_RT  &none
-#define X_RM  &none 
-#define X_RB  &none 
-#define X_RH  &mo MOUSE
+#define X_RM  &none
+#define X_RB  &none
+#define X_RH  SMART_NUM
 
 /* source the main keymap */
 #include "base.keymap"
