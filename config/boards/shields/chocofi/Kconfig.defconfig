@@ -1,4 +1,4 @@
-if SHIELD_CHOCOFI_LEFT
+if SHIELD_CHOCOFI_DONGLE
 
 config ZMK_KEYBOARD_NAME
     default "Chocofi"
