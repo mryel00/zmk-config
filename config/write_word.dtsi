@@ -1,0 +1,38 @@
+// #include <dt-bindings/zmk/keys.h>
+
+/ {
+    behaviors {
+        write_word: write_word {
+            compatible = "zmk,behavior-auto-layer";
+            #binding-cells = <1>;
+            continue-list = <
+                LEFT RIGHT UP DOWN
+                TAB SPACE BSPC DEL DOT COLON COMMA SEMICOLON QMARK EXCL
+                LPAR RPAR LBKT RBKT LBRC RBRC HASH AT DLLR
+                PLUS MINUS STAR FSLH EQUAL LT GT CARET UNDER PRCNT
+                AMPS PIPE SQT
+            >;
+            ignore-alphas;
+            ignore-numbers;
+            ignore-modifiers;
+        };
+    };
+};
+
+// / {
+//     behaviors {
+//         t: t {
+//             compatible = "zmk,behavior-tri-state";
+//             #binding-cells = <2>;
+//             bindings = <&kp A>, <&none>, <&macro_param_1to1>, <&kp 0>;
+//             ignored-key-positions = <
+//                 LT4 LT3 LT2 LT1 LT0 RT0 RT1 RT2 RT3     \
+//                 LM4 LM3 LM2 LM1 LM0 RM0 RM1 RM2 RM3     \
+//                     LB3 LB2 LB1 LB0 RB0 RB1 RB2 RB3     \
+//                             LH1 LH0     RH1         \
+//             >;
+//             ignored-layers = <DEF NUM NAV GAMING_WRITE>;
+//         };
+//     };
+// };
+

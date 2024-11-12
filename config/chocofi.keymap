@@ -1,6 +1,5 @@
-#include "zmk-helpers/key-labels/42.h"
-
 #include <behaviors.dtsi>
+#include <behaviors/num_word.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #if CONFIG_WIRELESS
     #include <dt-bindings/zmk/bt.h>
@@ -10,6 +9,7 @@
 #endif
 
 #include "zmk-helpers/helper.h"
+#include "zmk-helpers/key-labels/42.h"
 #include "zmk-helpers/unicode-chars/greek.dtsi"
 #include "zmk-helpers/unicode-chars/german.dtsi"
 #include "zmk-helpers/unicode-chars/currency.dtsi"
@@ -28,6 +28,7 @@
 #define TOF 11
 #define MC 12
 #define DEADLOCK 13
+#define GAMING_WRITE 14
 
 #include "combos.dtsi"  // requires layer aliases
 #include "mouse.dtsi"
@@ -129,7 +130,7 @@ ZMK_HOLD_TAP(num_fn,
     flavor = "balanced";
     tapping-term-ms = <200>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&mo>, <&num_word>;
+    bindings = <&mo>, <&num_dance>;
 )
 
 // tap: num-word | double-tap: sticky num-layer | hold: num-layer
@@ -137,22 +138,30 @@ ZMK_HOLD_TAP(num_fn,
 ZMK_HOLD_TAP(smart_num,
     flavor = "balanced";
     tapping-term-ms = <200>;
-    quick-tap-ms = <QUICK_TAP_MS>;
+    quick-tap-ms = <300>;
     bindings = <&mo>, <&num_dance>;
 )
 ZMK_TAP_DANCE(num_dance,
-    tapping-term-ms = <200>;
-    bindings = <&num_word>, <&sl NUM>;  // reverse this for sticky-num on single tap
+    tapping-term-ms = <300>;
+    bindings = <&sl NUM>, <&num_word NUM>;  // reverse this for sticky-num on single tap
 )
 &num_word {  // num-word, requires PR #1451
-    layers = <NUM>;
     continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL>;
     ignore-modifiers;
 };
 
+// tap: win | hold: FN
+#define WIN_FN &win_fn FN LGUI
+ZMK_HOLD_TAP(win_fn,
+    flavor = "balanced";
+    tapping-term-ms = <200>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&mo>, <&kp>;
+)
+
 // smart-mouse, requires PR #1366
 ZMK_TRI_STATE(smart_mouse,
-    bindings = <&tog MOUSE>, <&none>, <&tog MOUSE>;
+    bindings = <&tog MOUSE>, <&none>, <&to DEF>;
     ignored-key-positions = <RT0 RT1 RT2 RT3 RT4 RM1 RM2 RM3 RB1 RB2 RB3 RH0 RH1>;
     ignored-layers = <MOUSE>;
 )
@@ -236,6 +245,37 @@ ZMK_MACRO(win_sleep,
     bindings = <&kp LG(X) &kp U &kp S>;
 )
 
+ZMK_MACRO_ONE_PARAM(gwr,
+    wait-ms = <10>;
+    tap-ms = <10>;
+    bindings =  <&to DEF>, <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>;
+)
+
+#include "write_word.dtsi"
+
+// ZMK_MACRO_ONE_PARAM(gw,
+//     wait-ms = <10>;
+//     tap-ms = <10>;
+//     bindings = <&to GAMING_WRITE>, <&macro_param_1to1 &kp MACRO_PLACEHOLDER>;
+// )
+
+// ZMK_MACRO_ONE_PARAM(gwr,
+//     wait-ms = <10>;
+//     tap-ms = <10>;
+//     bindings =  <&to DEF>, <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>;
+// )
+
+// ZMK_TRI_STATE(gaming_write,
+//     bindings = <&gw A>, <&none>, <&macro_param_1to1>, <&gwr B>;
+//     ignored-key-positions = <
+//         LT4 LT3 LT2 LT1 LT0 RT0 RT1 RT2 RT3     \
+//         LM4 LM3 LM2 LM1 LM0 RM0 RM1 RM2 RM3     \
+//             LB3 LB2 LB1 LB0 RB0 RB1 RB2 RB3     \
+//                     LH1 LH0     RH1         \
+//     >;
+//     ignored-layers = <DEF NUM NAV GAMING_WRITE>;
+// )
+
 // misc aliases
 #define CANCEL      &kp K_CANCEL             // cancel caps-word, num-word and smart-mouse
 #define DSK_PREV    &hmr LCTRL LG(LC(LEFT))  // previous desktop
@@ -248,17 +288,17 @@ ZMK_MACRO(win_sleep,
 /* Keymap */
 // MARK: Keymap
 
-ZMK_CONDITIONAL_LAYER(FN NUM, SYS)  // FN + NUM --> SYS
+ZMK_CONDITIONAL_LAYER(sys_fn, FN NUM, SYS)  // FN + NUM --> SYS
 
 ZMK_LAYER(base,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     &kp TAB       &kp Q         &kp W         &kp F         &kp P         &kp B           &kp J         &kp L         &kp U         &kp Y         &kp SQT       &kp ESC
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp BSPC      &hml LGUI A   &hml LALT R   &hml LSHFT S  &hml LCTRL T  &kp G           &kp M         &hmr LCTRL N  &hmr RSHFT E  &hmr LALT I   &hmr LGUI O   &to MC
+    &kp BSPC      &hml LGUI A   &hml LALT R   &hml LSHFT S  &hml LCTRL T  &kp G           &kp M         &hmr LCTRL N  &hmr RSHFT E  &hmr LALT I   &hmr LGUI O   &key_repeat
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp LCTL      &kp Z         &kp X         &kp C         &kp D         &kp V           &kp K         &kp H         &comma_morph  &dot_morph    &qexcl        &to TOF
+    &kp LCTL      &kp Z         &kp X         &kp C         &kp D         &kp V           &kp K         &kp H         &comma_morph  &dot_morph    &qexcl        &to GAMING
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                              &kp LGUI      NUM_FN        &lt_spc NAV 0   &lt NAV RET   &smart_shft   &tog MOUSE
+                                              WIN_FN        SMART_NUM     &lt_spc NAV 0   &lt NAV RET   &smart_shft   &smart_mouse
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 )
 
@@ -298,13 +338,25 @@ ZMK_LAYER(fn,
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 )
 
+// ZMK_LAYER(sys,
+// //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+//     ___           ___           ___          _BT_SEL_KEYS_  ___           ___             ___           ___           ___           ___           ___           ___
+// //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+//     ___           ___           ___           ___           ___           &bootloader     &bootloader   ___           ___           ___           ___           ___
+// //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+//     ___           ___           ___           ___           ___           &sys_reset      &sys_reset    ___           ___           ___           ___           ___
+// //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+//                                               ___           ___           ___             ___           ___           ___
+// //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
+// )
+
 ZMK_LAYER(sys,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    ___           ___           ___          _BT_SEL_KEYS_  ___           ___             ___           ___           ___           ___           ___           ___
+    ___           ___           ___          ___            ___           ___             ___           ___           ___           ___           ___           ___
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    ___           ___           ___           ___           ___           &bootloader     &bootloader   ___           ___           ___           ___           ___
+    ___           ___           ___           ___           ___           ___             ___           ___           ___           ___           ___           ___
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    ___           ___           ___           ___           ___           &sys_reset      &sys_reset    ___           ___           ___           ___           ___
+    ___           ___           ___           ___           ___           ___             ___           ___           ___           ___           ___           ___
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                               ___           ___           ___             ___           ___           ___
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
@@ -330,7 +382,7 @@ ZMK_LAYER(mouse,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     ___           ___           ___           ___           ___           ___             ___           &mkp MB4      &mkp MCLK      &mkp MB5     ___           ___
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                              ___           ___           ___             &mkp LCLK     &mkp RCLK     &to DEF
+                                              ___           ___           ___             &mkp LCLK     &mkp RCLK     ___
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 )
 
