@@ -14,6 +14,21 @@
 #include "zmk-helpers/unicode-chars/german.dtsi"
 #include "zmk-helpers/unicode-chars/currency.dtsi"
 
+#define DEF             0
+#define NUM             1
+#define NAV             2
+#define FN              3
+#define SYS             4
+#define UC              5
+#define MOUSE           6
+#define GAMING          7
+#define GAMING1         8
+#define GAMING2         9
+#define GAMING3         10
+#define TOF             11
+#define MC              12
+#define DEADLOCK        13
+#define GAMING_WRITE    14
 
 
 #define XXX &none
@@ -37,6 +52,10 @@
     flavor = "balanced";
     tapping-term-ms = <200>;
     quick-tap-ms = <QUICK_TAP_MS>;
+};
+
+&leader {  // leader-key config
+    timeout-ms = <650>;
 };
 
 /* Homerow mods */
@@ -267,6 +286,9 @@ ZMK_MACRO_ONE_PARAM(gwr,
 //     ignored-layers = <DEF NUM NAV GAMING_WRITE>;
 // )
 
+// Sticky shift + leader
+ZMK_MACRO(leader_sft, bindings = <&sk LSHFT &leader>;)
+
 // misc aliases
 #define CANCEL      &kp K_CANCEL             // cancel caps-word, num-word and smart-mouse
 #define DSK_PREV    &hmr LCTRL LG(LC(LEFT))  // previous desktop
@@ -289,7 +311,7 @@ ZMK_LAYER(base,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &kp LCTL      &kp Z         &kp X         &kp C         &kp D         &kp V           &kp K         &kp H         &comma_morph  &dot_morph    &qexcl        &to GAMING
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                              WIN_FN        SMART_NUM     &lt_spc NAV 0   &lt NAV RET   &smart_shft   &smart_mouse
+                                              WIN_FN        SMART_NUM     &lt_spc NAV 0   &lt NAV RET   &smart_shft   &leader
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 )
 
