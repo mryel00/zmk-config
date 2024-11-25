@@ -28,7 +28,8 @@
 #define TOF             11
 #define MC              12
 #define DEADLOCK        13
-#define GAMING_WRITE    14
+#define SUPERVIVE       14
+#define GAMING_WRITE    15
 
 
 #define XXX &none

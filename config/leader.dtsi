@@ -53,3 +53,4 @@ ZMK_LEADER_SEQUENCE(degree,     &degree,        LT4)  // °
 ZMK_LEADER_SEQUENCE(tof,        &to TOF,        LM1 RM4 LT2)
 ZMK_LEADER_SEQUENCE(mc,         &to MC,         RM0 LB2)
 ZMK_LEADER_SEQUENCE(deadlock,   &to DEADLOCK,   LB1 RM2 LM4 LB1)
+ZMK_LEADER_SEQUENCE(supervive,  &to SUPERVIVE,  LB0 RM3 LB0)
