@@ -1,5 +1,6 @@
 #include <behaviors.dtsi>
-#include <behaviors/num_word.dtsi>
+#include <behaviors/num_word.dtsi> // requires auto-layer module
+#include <behaviors/leader_key.dtsi> // requires leader-key module
 #include <dt-bindings/zmk/keys.h>
 #if CONFIG_WIRELESS
     #include <dt-bindings/zmk/bt.h>
@@ -312,7 +313,7 @@ ZMK_LAYER(base,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &kp LCTL      &kp Z         &kp X         &kp C         &kp D         &kp V           &kp K         &kp H         &comma_morph  &dot_morph    &qexcl        &to GAMING
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                              WIN_FN        SMART_NUM     &lt_spc NAV 0   &lt NAV RET   &smart_shft   &leader
+                                              WIN_FN        SMART_NUM     &lt_spc NAV 0   &lt NAV RET   &smart_shft   XXX //&leader
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 )
 
