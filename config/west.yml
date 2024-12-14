@@ -6,7 +6,7 @@ manifest:
       url-base: https://github.com/urob
   projects:
     - name: zmk
-      revision: 11f600d9e52233a038b86069c99c5f7947b7b925
+      revision: 9e36ebd52587c0364562057466a458fdcfcdc685
       remote: zmkfirmware
       import: app/west.yml
     - name: zmk-helpers
