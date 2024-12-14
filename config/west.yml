@@ -27,9 +27,6 @@ manifest:
     # Zephyr with a path other than `zephyr` (as in `going-modular`).
     - name: zmk
       revision: main
-      path: .
-      import:
-        file: app/west.yml
-        path-prefix: zmk
+      import: app/west.yml
   self:
     path: config
