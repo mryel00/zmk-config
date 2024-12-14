@@ -52,6 +52,13 @@ ZMK_MACRO(dot_spc,
     bindings = <&kp DOT &kp SPACE &sk LSHFT>;
 )
 
+SIMPLE_MORPH(spc_morph2, SFT, &kp SPACE, &dot_spc2)
+ZMK_MACRO(dot_spc2,
+    wait-ms = <0>;
+    tap-ms = <5>;
+    bindings = <&kp A>;
+)
+
 ZMK_MOD_MORPH(smart_shft,
     bindings = <&sk LSHFT>, <&caps_word>;
     mods = <(MOD_LSFT)>;
@@ -69,7 +76,7 @@ ZMK_LAYER(base,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &kp LCTL      &kp Z         &kp X         &kp C         &kp D         &kp V           &kp K         &kp H         XXX XXX XXX XXX
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                              XXX        XXX     &lt_spc NAV 0   &lt NAV RET   &smart_shft   XXX
+                                              &spc_morph2      &spc_morph     &lt_spc NAV 0   &lt NAV RET   &smart_shft   XXX
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 )
 
