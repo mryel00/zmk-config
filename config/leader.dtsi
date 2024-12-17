@@ -14,7 +14,6 @@ tapping the leader key. */
 ZMK_UNICODE_SINGLE(degree, N0, N0, B, N0)
 
 /* German umlauts */
-
 ZMK_LEADER_SEQUENCE(de_ae,      &de_ae,         LM4)  // ä
 ZMK_LEADER_SEQUENCE(de_oe,      &de_oe,         RM4)  // ö
 ZMK_LEADER_SEQUENCE(de_ue,      &de_ue,         RT2)  // ü
@@ -32,7 +31,6 @@ ZMK_LEADER_SEQUENCE(supervive,  &to SUPERVIVE,  LB0 RM3 LB0)
 ZMK_LEADER_SEQUENCE(zmk_stud,   &studio_unlock, LB4 RM0 RB0)
 
 // /* Greek letters */
-
 // ZMK_LEADER_SEQUENCE(el_alpha,   &el_alpha,      RM2 LM4)  // α
 // ZMK_LEADER_SEQUENCE(el_beta,    &el_beta,       RM2 LT0)  // β
 // ZMK_LEADER_SEQUENCE(el_gamma,   &el_gamma,      RM2 LM0)  // γ
