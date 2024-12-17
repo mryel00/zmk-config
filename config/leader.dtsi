@@ -22,6 +22,15 @@ ZMK_LEADER_SEQUENCE(de_eszett,  &de_eszett,     LM2)  // ß
 ZMK_LEADER_SEQUENCE(curr_euro,  &curr_euro,     RT0)  // €
 ZMK_LEADER_SEQUENCE(degree,     &degree,        LT4)  // °
 
+/* Gaming Layers */
+ZMK_LEADER_SEQUENCE(tof,        &to TOF,        LM1 RM4 LT2)
+ZMK_LEADER_SEQUENCE(mc,         &to MC,         RM0 LB2)
+ZMK_LEADER_SEQUENCE(deadlock,   &to DEADLOCK,   LB1 RM2 LM4 LB1)
+ZMK_LEADER_SEQUENCE(supervive,  &to SUPERVIVE,  LB0 RM3 LB0)
+
+/* ZMK Studio */
+ZMK_LEADER_SEQUENCE(zmk_stud,   &studio_unlock, LB4 RM0 RB0)
+
 // /* Greek letters */
 
 // ZMK_LEADER_SEQUENCE(el_alpha,   &el_alpha,      RM2 LM4)  // α
@@ -48,9 +57,3 @@ ZMK_LEADER_SEQUENCE(degree,     &degree,        LT4)  // °
 // ZMK_LEADER_SEQUENCE(el_chi,     &el_chi,        RM2 LB2)  // χ
 // ZMK_LEADER_SEQUENCE(el_psi,     &el_psi,        RM2 RT3)  // ψ
 // ZMK_LEADER_SEQUENCE(el_omega,   &el_omega,      RM2 LT3)  // ω
-
-/* Gaming Layers */
-ZMK_LEADER_SEQUENCE(tof,        &to TOF,        LM1 RM4 LT2)
-ZMK_LEADER_SEQUENCE(mc,         &to MC,         RM0 LB2)
-ZMK_LEADER_SEQUENCE(deadlock,   &to DEADLOCK,   LB1 RM2 LM4 LB1)
-ZMK_LEADER_SEQUENCE(supervive,  &to SUPERVIVE,  LB0 RM3 LB0)

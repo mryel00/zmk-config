@@ -36,19 +36,19 @@ _parse_combos:
 # parse build.yaml and filter targets by expression
 _parse_targets $expr:
     #!/usr/bin/env bash
-    attrs="[.board, .shield]"
+    attrs="[.board, .shield, .snippet]"
     filter="(($attrs | map(. // [.]) | combinations), ((.include // {})[] | $attrs)) | join(\",\")"
     echo "$(yq -r "$filter" build.yaml | grep -v "^," | grep -i "${expr/#all/.*}")"
 
 # build firmware for single board & shield combination
-_build_single $board $shield *west_args:
+_build_single $board $shield $snippet *west_args:
     #!/usr/bin/env bash
     set -euo pipefail
-    artifact="${shield:+${shield// /-}-}${board}"
+    artifact="${shield:+${shield// /+}-}${board}"
     build_dir="{{ build / '$artifact' }}"
 
     echo "Building firmware for $artifact..."
-    west build -s zmk/app -d "$build_dir" -b $board {{ west_args }} -- \
+    west build -s zmk/app -d "$build_dir" -b $board {{ west_args }} ${snippet:+-S "$snippet"} -- \
         -DZMK_CONFIG="{{ config }}" ${shield:+-DSHIELD="$shield"}
 
     if [[ -f "$build_dir/zephyr/zmk.uf2" ]]; then
@@ -64,13 +64,17 @@ build expr *west_args: _parse_combos
     targets=$(just _parse_targets {{ expr }})
 
     [[ -z $targets ]] && echo "No matching targets found. Aborting..." >&2 && exit 1
-    echo "$targets" | while IFS=, read -r board shield; do
-        just _build_single "$board" "$shield" {{ west_args }}
+    echo "$targets" | while IFS=, read -r board shield snippet; do
+        just _build_single "$board" "$shield" "$snippet" {{ west_args }}
     done
 
 # clear build cache and artifacts
 clean:
     rm -rf {{ build }} {{ out }}
+
+# clear all automatically generated files
+clean-all: clean
+    rm -rf .west zmk
 
 # clear nix cache
 clean-nix:
@@ -80,8 +84,8 @@ clean-nix:
 draw:
     #!/usr/bin/env bash
     set -euo pipefail
-    keymap -c "{{ draw }}/config.yaml" parse -z "{{ config }}/chocofi.keymap" >"{{ draw }}/chocofi.yaml"
-    keymap -c "{{ draw }}/config.yaml" draw "{{ draw }}/chocofi.yaml" -k "boardsource/unicorne" >"{{ draw }}/base.svg"
+    keymap -c "{{ draw }}/config.yaml" parse -z "{{ config }}/cornedong.keymap" >"{{ draw }}/cornedong.yaml"
+    keymap -c "{{ draw }}/config.yaml" draw "{{ draw }}/cornedong.yaml" -k "ferris/sweep" >"{{ draw }}/cornedong.svg"
 
 # initialize west
 init:

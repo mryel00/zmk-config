@@ -1,6 +1,6 @@
 file_format: "1"
-id: chocofi
-name: Chocofi
+id: cornedong
+name: Cornedong
 type: shield
 url: https://github.com/foostan/crkbd/
 requires: [pro_micro]
@@ -8,8 +8,8 @@ exposes: [i2c_oled]
 features:
   - keys
   - display
-  - underglow
+  - studio
 siblings:
-  - chocofi_left
-  - chocofi_right
-  - chocofi_dongle
+  - cornedong_left
+  - cornedong_right
+  - cornedong_dongle

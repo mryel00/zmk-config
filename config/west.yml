@@ -6,11 +6,24 @@ manifest:
       url-base: https://github.com/urob
   projects:
     - name: zmk
-      revision: 9e36ebd52587c0364562057466a458fdcfcdc685
       remote: zmkfirmware
+      # revision: 11f600d9e52233a038b86069c99c5f7947b7b925
+      revision: main
       import: app/west.yml
     - name: zmk-helpers
       remote: urob
       revision: main
+    - name: zmk-auto-layer
+      revision: main
+      remote: urob
+      path: modules/auto-layer
+    - name: zmk-tri-state
+      revision: main
+      remote: urob
+      path: modules/tri-state
+    - name: zmk-leader-key
+      revision: legacy
+      remote: urob
+      path: modules/leader-key
   self:
     path: config
