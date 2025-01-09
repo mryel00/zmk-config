@@ -1,3 +1,18 @@
+#undef ZMK_LEADER_SEQUENCE
+#define ZMK_LEADER_SEQUENCE(name, leader_bindings, leader_sequence) \
+    / { \
+        behaviors { \
+            leader: leader { \
+                compatible = "zmk,behavior-leader-key"; \
+                #binding-cells = <0>; \
+                leader_sequence_ ## name { \
+                    bindings = <leader_bindings>; \
+                    sequence = <leader_sequence>; \
+                }; \
+            }; \
+        }; \
+    };
+
 /*                KEY POSITIONS
 
   ╭─────────────────────────╮ ╭─────────────────────────╮
@@ -14,21 +29,30 @@ tapping the leader key. */
 ZMK_UNICODE_SINGLE(degree, N0, N0, B, N0)
 
 /* German umlauts */
-ZMK_LEADER_SEQUENCE(de_ae,      &de_ae,         LM4)  // ä
-ZMK_LEADER_SEQUENCE(de_oe,      &de_oe,         RM4)  // ö
-ZMK_LEADER_SEQUENCE(de_ue,      &de_ue,         RT2)  // ü
-ZMK_LEADER_SEQUENCE(de_eszett,  &de_eszett,     LM2)  // ß
-ZMK_LEADER_SEQUENCE(curr_euro,  &curr_euro,     RT0)  // €
-ZMK_LEADER_SEQUENCE(degree,     &degree,        LT4)  // °
+ZMK_LEADER_SEQUENCE(de_ae,      &de_ae,         A)  // ä
+ZMK_LEADER_SEQUENCE(de_oe,      &de_oe,         O)  // ö
+ZMK_LEADER_SEQUENCE(de_ue,      &de_ue,         U)  // ü
+ZMK_LEADER_SEQUENCE(de_eszett,  &de_eszett,     S)  // ß
+ZMK_LEADER_SEQUENCE(curr_euro,  &curr_euro,     J)  // €
+ZMK_LEADER_SEQUENCE(degree,     &degree,        Q)  // °
 
-/* Gaming Layers */
-ZMK_LEADER_SEQUENCE(tof,        &to TOF,        LM1 RM4 LT2)
-ZMK_LEADER_SEQUENCE(mc,         &to MC,         RM0 LB2)
-ZMK_LEADER_SEQUENCE(deadlock,   &to DEADLOCK,   LB1 RM2 LM4 LB1)
-ZMK_LEADER_SEQUENCE(supervive,  &to SUPERVIVE,  LB0 RM3 LB0)
+/* Layers */
+ZMK_LEADER_SEQUENCE(tof,        &to TOF,        T O F)
+ZMK_LEADER_SEQUENCE(mc,         &to MC,         M C)
+ZMK_LEADER_SEQUENCE(deadlock,   &to DEADLOCK,   D E A D)
+ZMK_LEADER_SEQUENCE(supervive,  &to SUPERVIVE,  V I V)
+ZMK_LEADER_SEQUENCE(mouse,      &to MOUSE,      M O U S)
 
 /* ZMK Studio */
-ZMK_LEADER_SEQUENCE(zmk_stud,   &studio_unlock, LB4 RM0 RB0)
+ZMK_LEADER_SEQUENCE(zmk_stud,   &studio_unlock, Z M K)
+
+/* BLE and USB */
+#ifdef CONFIG_WIRELESS
+ZMK_LEADER_SEQUENCE(usb,        &out OUT_USB,   B U S B)
+ZMK_LEADER_SEQUENCE(ble,        &out OUT_BLE,   B B L E)
+#endif /* CONFIG_WIRELESS */
+// ZMK_LEADER_SEQUENCE(reset,      &sys_reset,     R E S E T)
+// ZMK_LEADER_SEQUENCE(boot,       &bootloader,    B O O T)
 
 // /* Greek letters */
 // ZMK_LEADER_SEQUENCE(el_alpha,   &el_alpha,      RM2 LM4)  // α

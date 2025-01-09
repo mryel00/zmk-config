@@ -1,4 +1,7 @@
 manifest:
+  defaults:
+    remote: urob
+    revision: v0.1
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
@@ -10,20 +13,45 @@ manifest:
       # revision: 11f600d9e52233a038b86069c99c5f7947b7b925
       revision: main
       import: app/west.yml
+    # https://github.com/urob/zmk-helpers
     - name: zmk-helpers
-      remote: urob
-      revision: main
+      path: modules/zmk/helpers
+    # https://github.com/urob/zmk-auto-layer
     - name: zmk-auto-layer
-      revision: main
-      remote: urob
-      path: modules/auto-layer
+      path: modules/zmk/auto-layer
+    # https://github.com/urob/zmk-tri-state
     - name: zmk-tri-state
-      revision: main
-      remote: urob
-      path: modules/tri-state
+      path: modules/zmk/tri-state
+    # https://github.com/urob/zmk-leader-key
     - name: zmk-leader-key
-      revision: legacy
-      remote: urob
-      path: modules/leader-key
+      revision: v0.1+locality
+      # revision: legacy
+      path: modules/zmk/leader-key
+  
+    # Temporarily overload Zephyr until
+    # https://github.com/zmkfirmware/zephyr/pull/40 is merged.
+    - name: zephyr
+      revision: v3.5.0+zmk-fixes
+      clone-depth: 1
+      import:
+        name-blocklist:
+          - ci-tools
+          - hal_altera
+          - hal_cypress
+          - hal_infineon
+          - hal_microchip
+          - hal_nxp
+          - hal_openisa
+          - hal_silabs
+          - hal_xtensa
+          - hal_st
+          - hal_ti
+          - loramac-node
+          - mcuboot
+          - mcumgr
+          - net-tools
+          - openthread
+          - edtt
+          - trusted-firmware-m
   self:
     path: config

@@ -9,6 +9,9 @@ config ZMK_SPLIT_BLE_ROLE_CENTRAL
 config ZMK_USB
     default y
 
+config BT
+    default y
+
 endif
 
 if SHIELD_CORNEDONG_LEFT || SHIELD_CORNEDONG_RIGHT
