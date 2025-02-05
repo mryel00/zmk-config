@@ -36,12 +36,12 @@ _parse_combos:
 # parse build.yaml and filter targets by expression
 _parse_targets $expr:
     #!/usr/bin/env bash
-    attrs="[.board, .shield, .snippet]"
+    attrs="[.board, .shield, .snippet, .cmakeargs]"
     filter="(($attrs | map(. // [.]) | combinations), ((.include // {})[] | $attrs)) | join(\",\")"
     echo "$(yq -r "$filter" build.yaml | grep -v "^," | grep -i "${expr/#all/.*}")"
 
 # build firmware for single board & shield combination
-_build_single $board $shield $snippet *west_args:
+_build_single $board $shield $snippet $cmakeargs *west_args:
     #!/usr/bin/env bash
     set -euo pipefail
     artifact="${shield:+${shield// /+}-}${board}"
@@ -49,7 +49,7 @@ _build_single $board $shield $snippet *west_args:
 
     echo "Building firmware for $artifact..."
     west build -s zmk/app -d "$build_dir" -b $board {{ west_args }} ${snippet:+-S "$snippet"} -- \
-        -DZMK_CONFIG="{{ config }}" ${shield:+-DSHIELD="$shield"}
+        -DZMK_CONFIG="{{ config }}" ${shield:+-DSHIELD="$shield"} ${cmakeargs:+$cmakeargs}
 
     if [[ -f "$build_dir/zephyr/zmk.uf2" ]]; then
         mkdir -p "{{ out }}" && cp "$build_dir/zephyr/zmk.uf2" "{{ out }}/$artifact.uf2"
@@ -64,8 +64,8 @@ build expr *west_args: _parse_combos
     targets=$(just _parse_targets {{ expr }})
 
     [[ -z $targets ]] && echo "No matching targets found. Aborting..." >&2 && exit 1
-    echo "$targets" | while IFS=, read -r board shield snippet; do
-        just _build_single "$board" "$shield" "$snippet" {{ west_args }}
+    echo "$targets" | while IFS=, read -r board shield snippet cmakeargs; do
+        just _build_single "$board" "$shield" "$snippet" "$cmakeargs" {{ west_args }}
     done
 
 # clear build cache and artifacts
