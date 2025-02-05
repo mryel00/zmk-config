@@ -41,6 +41,7 @@ ZMK_LEADER_SEQUENCE(tof,        &to TOF,        T O F)
 ZMK_LEADER_SEQUENCE(mc,         &to MC,         M C)
 ZMK_LEADER_SEQUENCE(deadlock,   &to DEADLOCK,   D E A D)
 ZMK_LEADER_SEQUENCE(supervive,  &to SUPERVIVE,  V I V)
+ZMK_LEADER_SEQUENCE(gow,        &to GOW,        G O W)
 ZMK_LEADER_SEQUENCE(mouse,      &to MOUSE,      M O U S)
 
 /* ZMK Studio */

@@ -34,12 +34,13 @@
 #define MC              12
 #define DEADLOCK        13
 #define SUPERVIVE       14
-#define EXTRA1          15
-#define EXTRA2          16
-#define EXTRA3          17
-#define EXTRA4          18
-#define EXTRA5          19
-#define GAMING_WRITE    20
+#define GOW             15
+#define EXTRA1          16
+#define EXTRA2          17
+#define EXTRA3          18
+#define EXTRA4          19
+#define EXTRA5          20
+#define GAMING_WRITE    21
 
 
 #define XXX &none
@@ -256,8 +257,6 @@ ZMK_MACRO_ONE_PARAM(gwr,
     bindings =  <&to DEF>, <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>;
 )
 
-#include "write_word.dtsi"
-
 // ZMK_MACRO_ONE_PARAM(gw,
 //     wait-ms = <10>;
 //     tap-ms = <10>;
@@ -406,6 +405,6 @@ ZMK_LAYER(mouse,
 // )
 
 
-#include "gaming.dtsi"
+#include "gaming/gaming.dtsi"
 
 /* vim: set ft=c tw=174: */
