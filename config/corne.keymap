@@ -12,6 +12,7 @@
     #define _BT_SEL_KEYS_ &trans &trans &trans &trans &trans
     #define _OUT_SEL_KEYS_ &trans &trans
 #endif
+#define HOST_OS 1
 
 #include "zmk-helpers/helper.h"
 #include "zmk-helpers/key-labels/42.h"
