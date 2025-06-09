@@ -31,17 +31,16 @@
 #define GAMING1         8
 #define GAMING2         9
 #define GAMING3         10
-#define TOF             11
-#define MC              12
-#define DEADLOCK        13
-#define SUPERVIVE       14
-#define GOW             15
-#define EXTRA1          16
-#define EXTRA2          17
-#define EXTRA3          18
-#define EXTRA4          19
-#define EXTRA5          20
-#define GAMING_WRITE    21
+#define MC              11
+#define GOW             12
+#define MHW             13
+#define ROR2            14
+#define EXTRA1          15
+#define EXTRA2          16
+#define EXTRA3          17
+#define EXTRA4          18
+#define EXTRA5          19
+#define GAMING_WRITE    20
 
 
 #define XXX &none

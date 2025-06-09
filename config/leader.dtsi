@@ -37,11 +37,10 @@ ZMK_LEADER_SEQUENCE(curr_euro,  &curr_euro,     J)  // €
 ZMK_LEADER_SEQUENCE(degree,     &degree,        Q)  // °
 
 /* Layers */
-ZMK_LEADER_SEQUENCE(tof,        &to TOF,        T O F)
 ZMK_LEADER_SEQUENCE(mc,         &to MC,         M C)
-ZMK_LEADER_SEQUENCE(deadlock,   &to DEADLOCK,   D E A D)
-ZMK_LEADER_SEQUENCE(supervive,  &to SUPERVIVE,  V I V)
-ZMK_LEADER_SEQUENCE(gow,        &to GOW,        G O W)
+ZMK_LEADER_SEQUENCE(gow,        &to GOW,        M H)
+ZMK_LEADER_SEQUENCE(mhw,        &to GOW,        G O W)
+ZMK_LEADER_SEQUENCE(ror2,       &to ROR2,       R O R)
 ZMK_LEADER_SEQUENCE(mouse,      &to MOUSE,      M O U)
 
 /* ZMK Studio */

@@ -59,11 +59,10 @@ ZMK_LAYER(gaming3,
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 )
 
-#include "tof.dtsi"
 #include "minecraft.dtsi"
-#include "deadlock.dtsi"
-#include "supervive.dtsi"
 #include "god_of_war.dtsi"
+#include "monster_hunter_wilds.dtsi"
+#include "ror2.dtsi"
 
 #define ZMK_LAYER_RESERVED(_name) \
     / { \
