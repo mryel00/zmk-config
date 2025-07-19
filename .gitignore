@@ -10,3 +10,5 @@ zmk
 draw/base.svg
 draw/base.yaml
 flake.lock
+.nextcloudsync.log
+.sync*.*
