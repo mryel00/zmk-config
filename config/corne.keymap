@@ -16,7 +16,6 @@
 
 #include "zmk-helpers/helper.h"
 #include "zmk-helpers/key-labels/42.h"
-#include "zmk-helpers/unicode-chars/greek.dtsi"
 #include "zmk-helpers/unicode-chars/german.dtsi"
 #include "zmk-helpers/unicode-chars/currency.dtsi"
 
@@ -27,20 +26,18 @@
 #define SYMBOL          4
 #define SYS             5
 #define MOUSE           6
-#define GAMING          7
-#define GAMING1         8
-#define GAMING2         9
-#define GAMING3         10
-#define MC              11
-#define GOW             12
-#define MHW             13
-#define ROR2            14
-#define EXTRA1          15
-#define EXTRA2          16
-#define EXTRA3          17
-#define EXTRA4          18
-#define EXTRA5          19
-#define GAMING_WRITE    20
+#define GAMING1         7
+#define GAMING2         8
+#define GAMING3         9
+#define MC              10
+#define GOW             11
+#define MHW             12
+#define ROR2            13
+#define EXTRA1          14
+#define EXTRA2          15
+#define EXTRA3          16
+#define EXTRA4          17
+#define EXTRA5          18
 
 
 #define XXX &none
