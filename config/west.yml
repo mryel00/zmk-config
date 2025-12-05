@@ -1,7 +1,7 @@
 manifest:
   defaults:
     remote: urob
-    revision: v0.1
+    revision: v0.3
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
@@ -10,8 +10,6 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      # revision: 11f600d9e52233a038b86069c99c5f7947b7b925
-      revision: main
       import: app/west.yml
     # https://github.com/urob/zmk-helpers
     - name: zmk-helpers
@@ -24,34 +22,20 @@ manifest:
       path: modules/zmk/tri-state
     # https://github.com/urob/zmk-leader-key
     - name: zmk-leader-key
-      revision: v0.1+locality
-      # revision: legacy
       path: modules/zmk/leader-key
-  
-    # Temporarily overload Zephyr until
-    # https://github.com/zmkfirmware/zephyr/pull/40 is merged.
     - name: zephyr
       revision: v3.5.0+zmk-fixes
+      remote: zmkfirmware
       clone-depth: 1
       import:
-        name-blocklist:
-          - ci-tools
-          - hal_altera
-          - hal_cypress
-          - hal_infineon
-          - hal_microchip
-          - hal_nxp
-          - hal_openisa
-          - hal_silabs
-          - hal_xtensa
-          - hal_st
-          - hal_ti
-          - loramac-node
-          - mcuboot
-          - mcumgr
-          - net-tools
-          - openthread
-          - edtt
-          - trusted-firmware-m
+        # Only enable most commonly used boards. For less common hardware one
+        # may need to enable additional modules.
+        name-allowlist:
+          - cmsis
+          - hal_nordic
+          - hal_rpi_pico
+          - hal_stm32
+          - lvgl
+          - tinycrypt
   self:
     path: config
