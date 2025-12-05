@@ -7,10 +7,17 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: urob
       url-base: https://github.com/urob
+    - name: mryel00
+      url-base: https://github.com/mryel00
   projects:
     - name: zmk
       remote: zmkfirmware
       import: app/west.yml
+    # https://github.com/mryel00/zmk-memory-layer
+    - name: zmk-memory-layer
+      path: modules/zmk/memory-layer
+      remote: mryel00
+      revision: main
     # https://github.com/urob/zmk-helpers
     - name: zmk-helpers
       path: modules/zmk/helpers

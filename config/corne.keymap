@@ -250,6 +250,14 @@ ZMK_TAP_DANCE(copy_cut,
     bindings = <&kp LC(INS)>, <&kp LC(X)>;
 )
 
+/ {
+    behaviors {
+        chat_toggle: memory-layer {
+            compatible = "zmk,behavior-memory-layer";
+            #binding-cells = <0>;
+        };
+    };
+};
 
 // Sticky shift + leader
 ZMK_MACRO(leader_sft, bindings = <&sk LSHFT &leader>;)
@@ -274,7 +282,7 @@ ZMK_LAYER(base,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &kp BSPC      &hml LGUI N   &hml LALT R   &hml LSHFT T  &hml LCTRL S  &kp G           &kp Y         &hmr LCTRL H  &hmr LSHFT A  &hmr LALT E   &hmr LGUI I   &kp LC(B)
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp LCTL      &kp B         &kp X         &kp M         &kp C         &kp V           &kp K         &kp P         &comma_morph  &dot_morph    &qexcl        XXX
+    &kp LCTL      &kp B         &kp X         &kp M         &kp C         &kp V           &kp K         &kp P         &comma_morph  &dot_morph    &qexcl        &chat_toggle
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                               &lt FN LGUI   SMART_NUM     &lt_spc NAV 0   &lt NAV RET   &sk LSHFT     &leader
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
