@@ -33,11 +33,13 @@
 #define GOW             11
 #define MHW             12
 #define ROR2            13
-#define EXTRA1          14
-#define EXTRA2          15
-#define EXTRA3          16
-#define EXTRA4          17
-#define EXTRA5          18
+#define HK              14
+#define HKS             15
+#define EXTRA1          16
+#define EXTRA2          17
+#define EXTRA3          18
+#define EXTRA4          19
+#define EXTRA5          20
 
 
 #define XXX &none

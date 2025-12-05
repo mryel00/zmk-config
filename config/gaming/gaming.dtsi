@@ -38,6 +38,8 @@ ZMK_LAYER(gaming3,
 #include "god_of_war.dtsi"
 #include "monster_hunter_wilds.dtsi"
 #include "ror2.dtsi"
+#include "hollow_knight.dtsi"
+#include "silksong.dtsi"
 
 #define ZMK_LAYER_RESERVED(_name) \
     / { \
