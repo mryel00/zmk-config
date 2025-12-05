@@ -270,13 +270,13 @@ ZMK_CONDITIONAL_LAYER(sys_fn, FN NUM, SYS)  // FN + NUM --> SYS
 
 ZMK_LAYER(base,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &kp TAB       &kp Q         &kp W         &kp F         &kp P         &kp B           &kp J         &kp L         &kp U         &kp Y         &kp SQT       &kp ESC
+    &kp TAB       &kp Q         &kp L         &kp D         &kp W         &kp Z           &kp J         &kp F         &kp O         &kp U         &kp SQT       &kp ESC
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp BSPC      &hml LGUI A   &hml LALT R   &hml LSHFT S  &hml LCTRL T  &kp G           &kp M         &hmr LCTRL N  &hmr LSHFT E  &hmr LALT I   &hmr LGUI O   &kp LC(A)
+    &kp BSPC      &hml LGUI N   &hml LALT R   &hml LSHFT T  &hml LCTRL S  &kp G           &kp Y         &hmr LCTRL H  &hmr LSHFT A  &hmr LALT E   &hmr LGUI I   &kp LC(B)
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp LCTL      &kp Z         &kp X         &kp C         &kp D         &kp V           &kp K         &kp H         &comma_morph  &dot_morph    &qexcl        &to GAMING
+    &kp LCTL      &kp B         &kp X         &kp M         &kp C         &kp V           &kp K         &kp P         &comma_morph  &dot_morph    &qexcl        XXX
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                              &lt FN LGUI   SMART_NUM     &lt_spc NAV 0   &lt NAV RET   &smart_shft   &leader
+                                              &lt FN LGUI   SMART_NUM     &lt_spc NAV 0   &lt NAV RET   &sk LSHFT     &leader
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 )
 
