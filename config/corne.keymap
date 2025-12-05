@@ -250,34 +250,6 @@ ZMK_TAP_DANCE(copy_cut,
     bindings = <&kp LC(INS)>, <&kp LC(X)>;
 )
 
-ZMK_MACRO_ONE_PARAM(gwr,
-    wait-ms = <10>;
-    tap-ms = <10>;
-    bindings =  <&to DEF>, <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>;
-)
-
-// ZMK_MACRO_ONE_PARAM(gw,
-//     wait-ms = <10>;
-//     tap-ms = <10>;
-//     bindings = <&to GAMING_WRITE>, <&macro_param_1to1 &kp MACRO_PLACEHOLDER>;
-// )
-
-// ZMK_MACRO_ONE_PARAM(gwr,
-//     wait-ms = <10>;
-//     tap-ms = <10>;
-//     bindings =  <&to DEF>, <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>;
-// )
-
-// ZMK_TRI_STATE(gaming_write,
-//     bindings = <&gw A>, <&none>, <&macro_param_1to1>, <&gwr B>;
-//     ignored-key-positions = <
-//         LT4 LT3 LT2 LT1 LT0 RT0 RT1 RT2 RT3     \
-//         LM4 LM3 LM2 LM1 LM0 RM0 RM1 RM2 RM3     \
-//             LB3 LB2 LB1 LB0 RB0 RB1 RB2 RB3     \
-//                     LH1 LH0     RH1         \
-//     >;
-//     ignored-layers = <DEF NUM NAV GAMING_WRITE>;
-// )
 
 // Sticky shift + leader
 ZMK_MACRO(leader_sft, bindings = <&sk LSHFT &leader>;)
