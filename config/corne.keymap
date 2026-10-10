@@ -33,13 +33,16 @@
 #define GOW             11
 #define MHW             12
 #define ROR2            13
-#define HK              14
-#define HKS             15
-#define EXTRA1          16
-#define EXTRA2          17
-#define EXTRA3          18
-#define EXTRA4          19
-#define EXTRA5          20
+#define HKS             14
+#define FAC             15
+#define FAC_Q           16
+#define LOL             17
+#define PEAK            18
+#define EXTRA1          19
+#define EXTRA2          20
+#define EXTRA3          21
+#define EXTRA4          22
+#define EXTRA5          23
 
 
 #define XXX &none
